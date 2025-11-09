@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portfolios</title>
+    <!-- We'll use Tailwind CSS for fast, clean styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* A little extra hover brightness */
+        .card-pfp-text {
+            transition: color 0.3s ease;
+        }
+        .portfolio-card:hover .card-pfp-text {
+            color: #fff !important;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <div class="container max-w-7xl mx-auto p-8 py-16">
+        <h1 class="text-5xl font-bold text-center mb-4">Student Portfolios</h1>
+        <p class="text-xl text-gray-400 text-center mb-16">A collection of unique, personal websites.</p>
+
+        <!-- This grid will hold all the portfolio cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+
+            <!-- Card 1: Arnab -->
+            <a href="Arnab/index.html" class="portfolio-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl block group">
+                <div class="h-48 flex items-center justify-center bg-red-800">
+                    <span class="text-6xl font-bold text-red-300 card-pfp-text">A</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">Arnab</h3>
+                    <p class="text-gray-400 mb-4">View Portfolio</p>
+                    <span class="inline-block bg-red-600 text-white px-4 py-2 rounded-full font-semibold group-hover:bg-red-500 transition-colors">
+                        View &rarr;
+                    </span>
+                </div>
+            </a>
+
+            <!-- Card 2: Kavit -->
+            <a href="Kavit/index.html" class="portfolio-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl block group">
+                <div class="h-48 flex items-center justify-center bg-green-800">
+                    <span class="text-6xl font-bold text-green-300 card-pfp-text">KK</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">Kavit Korat</h3>
+                    <p class="text-gray-400 mb-4">BBA & Finance</p>
+                    <span class="inline-block bg-green-600 text-white px-4 py-2 rounded-full font-semibold group-hover:bg-green-500 transition-colors">
+                        View &rarr;
+                    </span>
+                </div>
+            </a>
+            
+            <!-- Card 3: Meet -->
+            <a href="Meet/index.html" class="portfolio-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl block group">
+                <div class="h-48 flex items-center justify-center bg-yellow-800">
+                    <span class="text-6xl font-bold text-yellow-300 card-pfp-text">MN</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">Meet Nawadhar</h3>
+                    <p class="text-gray-400 mb-4">Finance & Analytics</p>
+                    <span class="inline-block bg-yellow-600 text-white px-4 py-2 rounded-full font-semibold group-hover:bg-yellow-500 transition-colors">
+                        View &rarr;
+                    </span>
+                </div>
+            </a>
+            
+            <!-- Card 4: Nidhi -->
+            <a href="Nidhi/index.html" class="portfolio-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl block group">
+                <div class="h-48 flex items-center justify-center bg-purple-800">
+                    <span class="text-6xl font-bold text-purple-300 card-pfp-text">N</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">Nidhi</h3>
+                    <p class="text-gray-400 mb-4">Sustainable Business</p>
+                    <span class="inline-block bg-purple-600 text-white px-4 py-2 rounded-full font-semibold group-hover:bg-purple-500 transition-colors">
+                        View &rarr;
+                    </span>
+                </div>
+            </a>
+            
+            <!-- Card 5: Parii -->
+            <a href="Parii/index.html" class="portfolio-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl block group">
+                <div class="h-48 flex items-center justify-center bg-pink-800">
+                    <span class="text-6xl font-bold text-pink-300 card-pfp-text">PT</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">Parii Tiwari</h3>
+                    <p class="text-gray-400 mb-4">Corporate Law</p>
+                    <span class="inline-block bg-pink-600 text-white px-4 py-2 rounded-full font-semibold group-hover:bg-pink-500 transition-colors">
+                        View &rarr;
+                    </span>
+                </div>
+            </a>
+            
+            <!-- Card 6: Rajnandini -->
+            <a href="Rajnandini/index.html" class="portfolio-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl block group">
+                <div class="h-48 flex items-center justify-center bg-orange-800">
+                    <span class="text-6xl font-bold text-orange-300 card-pfp-text">RM</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">Rajnandini</h3>
+                    <p class="text-gray-400 mb-4">BBA (Hons) Student</p>
+                    <span class="inline-block bg-orange-600 text-white px-4 py-2 rounded-full font-semibold group-hover:bg-orange-500 transition-colors">
+                        View &rarr;
+                    </span>
+                </div>
+            </a>
+
+            <!-- Card 7: Saadiya (Using her image) -->
+            <a href="Saadiya/index.html" class="portfolio-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl block group">
+                <div class="h-48">
+                    <!-- Using the image from your folder! -->
+                    <img src="Saadiya.jpeg" alt="Saadiya Shaik" class="w-full h-full object-cover">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">Saadiya Shaik</h3>
+                    <p class="text-gray-400 mb-4">BBA & Future Leader</p>
+                    <span class="inline-block bg-blue-600 text-white px-4 py-2 rounded-full font-semibold group-hover:bg-blue-500 transition-colors">
+                        View &rarr;
+                    </span>
+                </div>
+            </a>
+
+            <!-- Card 8: Sashwati -->
+            <a href="Sashwati/index.html" class="portfolio-card bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-transform transform hover:scale-105 hover:shadow-2xl block group">
+                <div class="h-48 flex items-center justify-center bg-teal-800">
+                    <span class="text-6xl font-bold text-teal-300 card-pfp-text">S</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-2xl font-bold mb-2">Sashwati</h3>
+                    <p class="text-gray-400 mb-4">Public Interest Law</p>
+                    <span class="inline-block bg-teal-600 text-white px-4 py-2 rounded-full font-semibold group-hover:bg-teal-500 transition-colors">
+                        View &rarr;
+                    </span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+</body>
+</html>
