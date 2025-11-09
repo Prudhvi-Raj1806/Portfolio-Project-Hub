@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajnandini Malewadi | BBA (Hons) Student</title>
+    
+    <!-- NEW: Elegant font pairing -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;700&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- NEW: "Elegant/Feminine" Palette --- */
+        :root {
+            --bg-color: #fcf9f7; /* Warm, soft cream/ivory */
+            --card-bg: #ffffff;
+            --text-color: #4a4a4a; /* Soft, dark gray/brown */
+            --text-light: #777;
+            --accent-color: #b97a57; /* Muted Rose Gold / Bronze */
+            --border-color: #ece7e2;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* --- Global Styles --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        section {
+            padding: 6rem 0;
+        }
+
+        /* NEW: Elegant Serif Headings */
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.75rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            max-width: 70ch;
+        }
+        
+        /* --- Button Style --- */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px; /* Soft, rounded button */
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: var(--accent-color);
+            color: #fff;
+            border: 2px solid var(--accent-color);
+        }
+        
+        .btn:hover {
+            background: #a36b48;
+            border-color: #a36b48;
+            transform: translateY(-3px);
+        }
+
+        /* --- Header / Sticky Nav --- */
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(252, 249, 247, 0.85); /* Translucent cream */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+        
+        .logo {
+            font-family: 'Lora', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        /* --- Section: Hero --- */
+        #hero {
+            padding: 6rem 0;
+            text-align: center;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-pfp {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            border: 4px solid var(--card-bg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .hero-pfp img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #hero .tagline {
+            font-size: 1.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* --- Profile Summary --- */
+        #profile {
+            text-align: center;
+        }
+        
+        #profile p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* --- Education --- */
+        .education-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .education-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .education-item h3 {
+            margin-bottom: 0.5rem;
+        }
+        .education-item p {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+
+        /* --- NEW: Grids for Projects, Skills, Leadership --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+        
+        /* Skills Card List */
+        .card ul {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .card li {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+        
+        .card li::before {
+            content: '•';
+            color: var(--accent-color);
+            font-weight: 700;
+            position: absolute;
+            left: -1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Leadership Card */
+        .achievement-card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+        .achievement-card h3 {
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+
+        /* --- Section: Contact --- */
+        #contact {
+            text-align: center;
+        }
+        
+        #contact p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .contact-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            text-align: center;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* --- Fade-in Animation --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.75rem; }
+            h2 { font-size: 2.25rem; }
+            
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem;
+            }
+            .nav-links {
+                margin-top: 1rem;
+                gap: 1.5rem;
+            }
+            
+            .header {
+                position: static; /* No sticky on mobile */
+            }
+            
+            #hero {
+                min-height: auto;
+                padding: 4rem 0;
+            }
+            
+            section {
+                padding: 4rem 0;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Rajnandini Malewadi</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#profile" class="active">Profile</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- ===== Hero Section ===== -->
+        <section id="hero">
+            <div class="hero-pfp fade-in">
+                <img src="https://placehold.co/150x150/ECE7E2/B97A57?text=RM" alt="Rajnandini Malewadi" onerror="this.src='https://placehold.co/150x150/ECE7E2/B97A57?text=RM'">
+            </div>
+            <h1 class="fade-in">Rajnandini Malewadi</h1>
+            <p class="tagline fade-in">BBA (Hons) Student | Finance, Marketing, &amp; Consulting</p>
+            <div class="fade-in">
+                <a href="#contact" class="btn">Get In Touch</a>
+            </div>
+        </section>
+
+        <!-- ===== Profile Summary ===== -->
+        <section id="profile">
+            <h2 class="fade-in">Profile Summary</h2>
+            <p class="fade-in">
+                Meticulous and business-driven student pursuing BBA (Hons) with strong foundations in finance, marketing, and consulting. I am skilled in problem-solving, data analysis, and project management through certified industry programs. Seeking to contribute to global organizations while building expertise for a career in international business.
+            </p>
+        </section>
+        
+        <!-- ===== Education ===== -->
+        <section id="education">
+            <h2 class="fade-in">Education</h2>
+            <div class="education-list fade-in">
+                <div class="education-item">
+                    <h3>Bachelor of Business Administration (Hons.)</h3>
+                    <p>Alliance University, Bengaluru | Expected Graduation: 2029</p>
+                </div>
+                <div class="education-item">
+                    <h3>Class XII – Commerce Stream (85.3%)</h3>
+                    <p>Atul Vidyalaya | 2025</p>
+                </div>
+                <div class="education-item">
+                    <h3>Class X (83.2%)</h3>
+                    <p>Atul Vidyalaya | 2023</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Projects Section ===== -->
+        <section id="projects">
+            <h2 class="fade-in">Projects & Case Studies</h2>
+            <div class="card-grid fade-in">
+                <!-- Project 1 -->
+                <div class="card">
+                    <h3>Infinizo Studios (Internship)</h3>
+                    <p>Gained hands-on experience at a film production company and advertising agency (May 2024).</p>
+                </div>
+                <!-- Project 2 -->
+                <div class="card">
+                    <h3>Smart Waste Management (Taj Hotels)</h3>
+                    <p>Developed a sustainable waste management plan to improve operational efficiency for IHCL (Consulting Project).</p>
+                </div>
+                <!-- Project 3 -->
+                <div class="card">
+                    <h3>Urban Bhojan Network</h3>
+                    <p>Designed a business-finance-tech solution to reduce food waste and support Sustainable Development Goals (SDGs).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Skills Section ===== -->
+        <section id="skills">
+            <h2 class="fade-in">My Toolkit</h2>
+            <div class="card-grid fade-in">
+                <!-- Card 1 -->
+                <div class="card">
+                    <h3>Technical Skills</h3>
+                    <ul>
+                        <li>MS Excel</li>
+                        <li>MS PowerPoint</li>
+                        <li>Google Workspace</li>
+                        <li>Data Analytics (Beginner)</li>
+                        <li>Digital Marketing Tools (Canva, JotForm)</li>
+                    </ul>
+                </div>
+                <!-- Card 2 -->
+                <div class="card">
+                    <h3>Business Skills</h3>
+                    <ul>
+                        <li>Market Research</li>
+                        <li>Business Strategy</li>
+                        <li>Branding</li>
+                        <li>Consulting</li>
+                        <li>Project Management</li>
+                    </ul>
+                </div>
+                <!-- Card 3 -->
+                <div class="card">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Communication</li>
+                        <li>Leadership</li>
+                        <li>Critical Thinking</li>
+                        <li>Problem-Solving</li>
+                        <li>Team Collaboration</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ===== Leadership & Achievements ===== -->
+        <section id="leadership">
+            <h2 class="fade-in">Leadership & Achievements</h2>
+            <div class="card-grid fade-in">
+                <div class="card achievement-card"><h3>Participated in Model United Nations</h3></div>
+                <div class="card achievement-card"><h3>7+ Certified Industry Programs (Clever Harvey)</h3></div>
+                <div class="card achievement-card"><h3>School Basketball Team Captain</h3></div>
+                <div class="card achievement-card"><h3>School Football & Basketball Player</h3></div>
+                <div class="card achievement-card"><h3>Eco Club Member</h3></div>
+                <div class="card achievement-card"><h3>University Intramurals Volunteer</h3></div>
+            </div>
+        </section>
+
+        <!-- ===== Contact Section ===== -->
+        <section id="contact">
+            <h2 class="fade-in">Get In Touch</h2>
+            <div class="fade-in">
+                <p>
+                    I'm currently seeking new opportunities and connections.
+                    Feel free to reach out via email or connect with me on LinkedIn.
+                </light>
+                <div class="contact-links">
+                    <a href="mailto:rajnandinikm2607@gmail.com">rajnandinikm2607@gmail.com</a>
+                    <a href="#">LinkedIn Profile</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Rajnandini Malewadi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // --- 1. Fade-in on Scroll Animation ---
+            const fadeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const targets = document.querySelectorAll(".fade-in");
+            targets.forEach(target => fadeObserver.observe(target));
+
+            // --- 2. Automatic Footer Year ---
+            const yearElement = document.getElementById("year");
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+            // --- 3. Active Nav Link Highlighting ---
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll(".nav-links a");
+
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute("id");
+                        navLinks.forEach(link => link.classList.remove("active"));
+                        const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add("active");
+                        }
+                    }
+                });
+            }, {
+                rootMargin: "-20% 0px -50% 0px",
+                threshold: 0.1
+            });
+
+            sections.forEach(section => navObserver.observe(section));
+        });
+    </script>
+</body>
+</html>
