@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meet Nawadhar | Finance & Analytics</title>
+    <!-- We'll use the Inter font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Reset & Base Styles --- */
+        :root {
+            /* NEW: Professional "Finance Gold" accent */
+            --accent-color: #DAA520; /* Goldenrod */
+            --bg-color: #f8f9fa;
+            --card-bg-color: #ffffff;
+            --text-color: #212529;
+            --text-light: #555;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            line-height: 1.6;
+        }
+
+        /* --- NEW: Sticky Navigation --- */
+        nav {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        /* --- Section Styling --- */
+        /* NEW: No 100vh, free-scrolling sections */
+        section {
+            padding: 6rem 2rem; /* Generous padding */
+            max-width: 1100px;
+            margin: 0 auto; /* Center content */
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* --- NEW: Card Style (No Glass) --- */
+        .card {
+            background: var(--card-bg-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            padding: 2.5rem;
+            width: 100%;
+            border: 1px solid #eee;
+        }
+
+        /* --- Button Styles --- */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #c0901e; /* Darker gold */
+            border-color: #c0901e;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-color);
+            color: #fff;
+        }
+
+        /* --- NEW: Slide-up Animation --- */
+        .slide-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Section: Hero --- */
+        #hero {
+            padding-top: 8rem; /* More padding for first section */
+            text-align: center;
+        }
+        
+        #hero p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+            margin: 1rem 0 2rem;
+        }
+
+        /* --- Section: About --- */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-pfp {
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .about-pfp img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- Section: Skills (NEW STYLE) --- */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            width: 100%;
+        }
+
+        .skill-item h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 12px;
+            background: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+
+        /* --- Section: Experience (Journey) --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* The vertical line */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 15px;
+            height: 100%;
+            width: 4px;
+            background: #ddd;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 50px;
+            margin-bottom: 2.5rem;
+            text-align: left;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* The dot on the line */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 4px solid #fff;
+            z-index: 1;
+        }
+
+        .timeline-year {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+            font-size: 1rem;
+        }
+
+        /* --- Section: Projects --- */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            /* This is now a light-mode card */
+            padding: 0; /* Remove padding for image */
+            text-align: left;
+            transition: all 0.3s ease;
+            overflow: hidden; /* For image */
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: #eee;
+        }
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--accent-color);
+        }
+
+        /* --- Section: Contact --- */
+        #contact {
+            text-align: center;
+        }
+
+        #contact p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            border-top: 1px solid #eee;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 900px) {
+            section { padding: 4rem 2rem; }
+            h1 { font-size: 3rem; }
+            h2 { font-size: 2rem; }
+
+            .about-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            
+            .about-pfp {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            /* Mobile Nav */
+            nav {
+                padding: 1rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+            .nav-links a {
+                font-size: 0.9rem;
+            }
+
+            section { padding: 3rem 1.5rem; }
+            h1 { font-size: 2.5rem; }
+            #hero p { font-size: 1.2rem; }
+
+            .btn-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Navigation -->
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#hero" class="active">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main>
+
+        <!-- ===== Hero Section ===== -->
+        <section id="hero">
+            <div class="slide-up">
+                <h1>Meet Nawadhar</h1>
+                <p>BBA Candidate | Finance &amp; Data Analytics</p>
+                <div class="btn-container">
+                    <a href="#projects" class="btn btn-primary">View My Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== About Section ===== -->
+        <section id="about">
+            <h2 class="slide-up">About Me</h2>
+            <div class="card about-container slide-up">
+                <div class="about-content">
+                    <h3>Quantitative Mind. Creative Problem-Solver.</h3>
+                    <p>
+                        I'm a BBA student with a deep specialization in Finance and a passion for data. I thrive on translating complex datasets into actionable financial models and data-driven insights.
+                    </p>
+                    <p>
+                        My focus is on quantitative analysis and financial modeling. I'm proficient in Python, SQL, and advanced Excel, and I'm currently seeking an internship in investment banking or quantitative finance.
+                    </p>
+                    <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" download="MeetNawadhar_Resume.pdf" class="btn btn-primary" style="margin-left: 0;">
+                        Download Resume
+                    </a>
+                </div>
+                <div class="about-pfp">
+                    <img src="Meet.jpeg" alt="Meet Nawadhar Profile Picture" onerror="this.src='https://placehold.co/300x300/EEE/333?text=MN'">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Skills Section ===== -->
+        <section id="skills">
+            <h2 class="slide-up">My Toolkit</h2>
+            <div class="card skills-container slide-up">
+                <!-- Skill 1 -->
+                <div class="skill-item">
+                    <h4>Financial Modeling (Excel)</h4>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
+                </div>
+                <!-- Skill 2 -->
+                <div class="skill-item">
+                    <h4>Python (Pandas, NumPy)</h4>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 80%;"></div>
+                    </div>
+                </div>
+                <!-- Skill 3 -->
+                <div class="skill-item">
+                    <h4>SQL (Data-mining)</h4>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 75%;"></div>
+                    </div>
+                </div>
+                <!-- Skill 4 -->
+                <div class="skill-item">
+                    <h4>Tableau & Power BI</h4>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%;"></div>
+                    </div>
+                </div>
+                <!-- Skill 5 -->
+                <div class="skill-item">
+                    <h4>Quantitative Analysis</h4>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Experience Section ===== -->
+        <section id="experience">
+            <h2 class="slide-up">My Experience</h2>
+            <div class="card timeline slide-up">
+                <div class="timeline-item">
+                    <div class="timeline-year">Summer 2025</div>
+                    <div class="timeline-content">
+                        <h3>Finance Intern @ FinCorp</h3>
+                        <p>Automated variance reporting with a Python script, saving 10 analyst-hours per week. Built and maintained 3-statement models.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2024 - Present</div>
+                    <div class="timeline-content">
+                        <h3>Lead Analyst @ University Investment Fund</h3>
+                        <p>Managed a $50k portfolio of equities. Pitched a "long" on tech infrastructure that returned 18% over 6 months.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">2023 - 2024</div>
+                    <div class="timeline-content">
+                        <h3>Data Analytics TA</h3>
+                        <p>Tutored 50+ BBA students in advanced Excel and SQL, helping to develop their capstone data projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Projects Section ===== -->
+        <section id="projects">
+            <h2 class="slide-up">My Projects</h2>
+            <div class="projects-container slide-up">
+                <!-- Project 1 -->
+                <div class="project-card card">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/EEE/333?text=Project+1" alt="Project 1 Placeholder" onerror="this.src='https://placehold.co/600x400/EEE/333?text=Project+1'">
+                    </div>
+                    <div class="project-content">
+                        <h3>Stock Portfolio Analyzer</h3>
+                        <p>A Python-based tool that imports a trade history CSV and calculates Sharpe ratio, max drawdown, and other key metrics.</p>
+                        <a href="#" class="project-link">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card card">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/EEE/333?text=Project+2" alt="Project 2 Placeholder" onerror="this.src='https://placehold.co/600x400/EEE/333?text=Project+2'">
+                    </div>
+                    <div class="project-content">
+                        <h3>Market Sentiment Bot</h3>
+                        <p>Used Twitter's API and a natural language processing model to track and score market sentiment for a watchlist of 20 stocks.</p>
+                        <a href="#" class="project-link">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card card">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/EEE/333?text=Project+3" alt="Project 3 Placeholder" onerror="this.src='https://placehold.co/600x400/EEE/333?text=Project+3'">
+                    </div>
+                    <div class="project-content">
+                        <h3>M&A Deal Analysis</h3>
+                        <p>A capstone case study and valuation model for a hypothetical tech acquisition, focusing on synergy valuation and accretion/dilution.</p>
+                        <a href="#" class="project-link">View Case Study &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact Section ===== -->
+        <section id="contact">
+            <h2 class="slide-up">Get In Touch</h2>
+            <div class="slide-up">
+                <p>
+                    I'm currently seeking internship opportunities in finance and analytics.
+                    I'd love to chat about how I can bring value to your team.
+                </p>
+                <div class="contact-links">
+                    <!-- Email Icon -->
+                    <a href="mailto:meet.nawadhar@example.com" title="Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.803V4.697l-5.803 3.558Z"/>
+                        </svg>
+                    </a>
+                    <!-- LinkedIn Icon -->
+                    <a href="#" title="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.708-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                        </svg>
+                    </a>
+                    <!-- GitHub Icon (for code projects) -->
+                    <a href="#" title="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year"></span> Meet Nawadhar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // --- 1. Slide-up on Scroll Animation ---
+            const slideUpObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% is visible
+            });
+
+            const targets = document.querySelectorAll(".slide-up");
+            targets.forEach(target => slideUpObserver.observe(target));
+
+            // --- 2. Automatic Footer Year ---
+            const yearElement = document.getElementById("year");
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+            // --- 3. Active Nav Link Highlighting ---
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll(".nav-links a");
+
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute("id");
+                        // Remove active from all
+                        navLinks.forEach(link => link.classList.remove("active"));
+                        // Add active to the one in view
+                        const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add("active");
+                        }
+                    }
+                });
+            }, {
+                rootMargin: "-30% 0px -30% 0px", // Triggers when section is in middle 40% of screen
+                threshold: 0.2
+            });
+
+            sections.forEach(section => navObserver.observe(section));
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sashwati | Public Interest Law</title>
+    
+    <!-- NEW: Using stylish Montserrat for headings and readable Source Sans Pro for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- NEW: "Warm Minimalist" Palette --- */
+        :root {
+            --bg-color: #fbfaf8; /* Warm, light beige/ivory */
+            --text-color: #222222; /* Almost-black for high readability */
+            --text-light: #555;
+            --accent-color: #004d40; /* Deep, sophisticated teal/green */
+            --border-color: #e0e0e0;
+            --card-bg: #ffffff;
+            --light-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        /* --- NEW: Single-Column Layout --- */
+        main {
+            max-width: 800px; /* Centered, readable width */
+            margin: 0 auto;
+            padding: 0 2rem; /* Padding for mobile */
+        }
+
+        section {
+            padding: 5rem 0; /* Vertical spacing between sections */
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        /* --- Typography --- */
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--text-color);
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            max-width: 70ch; /* Optimal line length for reading */
+        }
+        
+        /* --- Button Style --- */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid var(--accent-color);
+            background: var(--accent-color);
+            color: #fff;
+        }
+        
+        .btn:hover {
+            background: #00332a; /* Darker teal */
+            border-color: #00332a;
+        }
+
+        /* --- Section: Hero --- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: none; /* No line after hero */
+        }
+        
+        #hero .tagline {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        /* NEW: Navigation within hero */
+        .hero-nav {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .hero-nav a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+        
+        .hero-nav a:hover,
+        .hero-nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* --- NEW: Areas of Focus List --- */
+        .focus-list {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        
+        .focus-list li {
+            position: relative;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+        
+        /* Custom "bullet" */
+        .focus-list li::before {
+            content: '✓';
+            position: absolute;
+            left: -1.5rem;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* --- NEW: Engagement Card Style --- */
+        .engagement-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            /* NEW: Accent border on top */
+            border-top: 4px solid var(--accent-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--light-shadow);
+            margin-bottom: 1.5rem;
+        }
+        
+        .engagement-card h3 {
+            color: var(--accent-color);
+        }
+        
+        .engagement-card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+
+        /* --- Section: Contact --- */
+        #contact p {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .contact-links a {
+            color: var(--text-color);
+            transition: color 0.3s ease;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 3rem 0;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+            text-align: center;
+        }
+        
+        /* --- Fade-in Animation --- */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            main {
+                padding: 0 1.5rem;
+            }
+            
+            h1 { font-size: 2.75rem; }
+            h2 { font-size: 2rem; }
+            p { font-size: 1rem; }
+            
+            .hero-nav {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- ===== Hero Section ===== -->
+        <section id="hero">
+            <!-- PFP Placeholder -->
+            <div style="width: 120px; height: 120px; border-radius: 50%; background: var(--border-color); margin-bottom: 2rem; overflow: hidden;">
+                <img src="https://placehold.co/120x120/E0E0E0/333?text=S" alt="Sashwati" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://placehold.co/120x120/E0E0E0/333?text=S'">
+            </div>
+            
+            <h1>Sashwati</h1>
+            <p class="tagline">Advocate for Public Interest &amp; Human Rights</p>
+
+            <ul class="hero-nav">
+                <li><a href="#profile" class="active">Profile</a></li>
+                <li><a href="#practice">Areas of Focus</a></li>
+                <li><a href="#engagements">Key Engagements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </section>
+
+        <!-- ===== Profile Section (About) ===== -->
+        <section id="profile">
+            <h2 class="fade-in-up">My Mission</h2>
+            <div class="fade-in-up">
+                <p>
+                    I am a lawyer committed to leveraging the law as a tool for social justice and equality. My practice is focused on defending human rights and advocating for public interest.
+                </p>
+                <p>
+                    I believe in providing a voice to the marginalized and challenging systemic inequities through rigorous legal advocacy, policy analysis, and community engagement. My goal is to create tangible, positive change, one case at a time.
+                </p>
+                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" download="Sashwati_CV.pdf" class="btn">
+                    Download CV
+                </a>
+            </div>
+        </section>
+
+        <!-- ===== Areas of Focus Section ===== -->
+        <section id="practice">
+            <h2 class="fade-in-up">Areas of Focus</h2>
+            <div class="fade-in-up">
+                <ul class="focus-list">
+                    <li>Human Rights Litigation</li>
+                    <li>Asylum &amp; Refugee Advocacy</li>
+                    <li>Environmental Law &amp; Climate Justice</li>
+                    <li>Public Policy Analysis</li>
+                    <li>Non-Profit &amp; NGO Advisory</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ===== Key Engagements Section ===== -->
+        <section id="engagements">
+            <h2 class="fade-in-up">Key Engagements</h2>
+            <div class="fade-in-up">
+                <!-- Engagement 1 -->
+                <div class="engagement-card">
+                    <h3>Lead Counsel, Environmental Justice Case</h3>
+                    <p>Successfully argued for the cleanup of an industrial site in a low-income community, setting a new precedent for state-level environmental protections.</p>
+                </div>
+                <!-- Engagement 2 -->
+                <div class="engagement-card">
+                    <h3>Refugee Advocacy Project</h3>
+                    <p>Co-authored a policy brief that was cited in legislative debates on asylum-seeker rights, leading to procedural reforms.</p>
+                </div>
+                 <!-- Engagement 3 -->
+                <div class="engagement-card">
+                    <h3>Pro-Bono Clinic Director</h3>
+                    <p>Managed a team of volunteer lawyers providing free legal aid, expanding clinic services to reach over 500+ individuals annually.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact Section ===== -->
+        <section id="contact">
+            <h2 class="fade-in-up">Contact</h2>
+            <div class="fade-in-up">
+                <p>
+                    I am open to collaborations with fellow advocates, non-profits, and policy-makers. 
+                    Please reach out to discuss how we can work together.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:sashwati.advocate@example.com">Email: sashwati.advocate@example.com</a>
+                    <a href="#">LinkedIn Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; <span id="year"></span> Sashwati. Legal services provided as per bar council regulations.</p>
+        </footer>
+
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            // --- 1. Fade-in on Scroll Animation ---
+            const fadeObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const targets = document.querySelectorAll(".fade-in-up");
+            targets.forEach(target => fadeObserver.observe(target));
+
+            // --- 2. Automatic Footer Year ---
+            const yearElement = document.getElementById("year");
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+            // --- 3. Active Nav Link Highlighting ---
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll(".hero-nav a");
+
+            const navObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute("id");
+                        navLinks.forEach(link => link.classList.remove("active"));
+                        const activeLink = document.querySelector(`.hero-nav a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.add("active");
+                        }
+                    }
+                });
+            }, {
+                rootMargin: "-40% 0px -40% 0px", // Triggers when section is in middle 20% of screen
+                threshold: 0.1
+            });
+
+            sections.forEach(section => navObserver.observe(section));
+        });
+    </script>
+</body>
+</html>
